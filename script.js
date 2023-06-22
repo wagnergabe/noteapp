@@ -1,5 +1,9 @@
 const addBtn = document.getElementById("add");
 
+const notes = JSON.parse(localStorage.getItem('notes'))
+
+console.log(notes)
+
 addBtn.addEventListener("click", () => addNewNote());
 
 function addNewNote(text = "") {
@@ -50,5 +54,5 @@ function updateLS() {
 
     notesText.forEach(note => notes.push(note.value))
 
-    console.log(notes)
+    localStorage.setItem('notes', JSON.stringify(notes))
 }
